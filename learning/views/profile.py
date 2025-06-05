@@ -1,6 +1,9 @@
 from rest_framework import viewsets
-from learning.serializers import TeacherProfile, TeacherProfileSerializer, StudentProfile, StudentProfileSerializer
+from learning.models import TeacherProfile, StudentProfile
+from learning.serializers import TeacherProfileSerializer, StudentProfileSerializer
 from rest_framework import permissions
+
+
 class TeacherProfileViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = TeacherProfile.objects.all()
     serializer_class = TeacherProfileSerializer
