@@ -1,8 +1,7 @@
-from learning.models import Course, Lesson
-from learning.serializers import CourseSerializer, LessonSerializer
+from learning.models.courses import Course, Lesson
+from learning.serializers.courses import CourseSerializer, LessonSerializer
 from rest_framework import viewsets
-from learning.permissions import IsStaffOrReadOnly
-
+from learning.permission import IsStaffOrReadOnly
 
 
 class CourseViewSet(viewsets.ModelViewSet):

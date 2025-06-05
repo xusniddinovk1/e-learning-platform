@@ -1,8 +1,7 @@
-from rest_framework import viewsets
-from learning import permissions
-from learning.models import Progress, Enrollment
-from learning.permissions import IsOwnerOrReadOnly
-from learning.serializers import ProgressSerializer, EnrollmentSerializer, EnrollmentCreateSerializer, \
+from rest_framework import viewsets, permissions
+from learning.models.misc import Progress, Enrollment
+from learning.permission import IsOwnerOrReadOnly
+from learning.serializers.misc import ProgressSerializer, EnrollmentSerializer, EnrollmentCreateSerializer, \
     ProgressCreateSerializer
 
 

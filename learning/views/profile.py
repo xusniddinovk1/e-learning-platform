@@ -1,6 +1,6 @@
 from rest_framework import viewsets
-from learning.models import TeacherProfile, StudentProfile
-from learning.serializers import TeacherProfileSerializer, StudentProfileSerializer
+from learning.models.profile import TeacherProfile, StudentProfile
+from learning.serializers.profile import TeacherProfileSerializer, StudentProfileSerializer
 from rest_framework import permissions
 
 

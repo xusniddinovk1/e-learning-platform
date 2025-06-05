@@ -1,6 +1,6 @@
 from rest_framework import serializers
-from learning.models import Lesson, Course
-from learning.serializers import TeacherProfileSerializer
+from learning.models.courses import Lesson, Course
+from learning.serializers.profile import TeacherProfileSerializer
 
 
 class LessonSerializer(serializers.ModelSerializer):

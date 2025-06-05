@@ -1,14 +1,12 @@
 from django.db import models
-from learning.models import StudentProfile, Course, Lesson
+
+from learning.models.profile import StudentProfile
+from learning.models.courses import Course, Lesson
 
 
 class Enrollment(models.Model):
-    student = models.ForeignKey(
-        StudentProfile, on_delete=models.CASCADE
-    )
-    course = models.ForeignKey(
-        Course, on_delete=models.CASCADE
-    )
+    student = models.ForeignKey(StudentProfile, on_delete=models.CASCADE)
+    course = models.ForeignKey(Course, on_delete=models.CASCADE)
     enrolled_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
@@ -21,12 +19,8 @@ class Enrollment(models.Model):
 
 
 class Progress(models.Model):
-    student = models.ForeignKey(
-        StudentProfile, on_delete=models.CASCADE
-    )
-    lesson = models.ForeignKey(
-        Lesson, on_delete=models.CASCADE
-    )
+    student = models.ForeignKey(StudentProfile, on_delete=models.CASCADE)
+    lesson = models.ForeignKey(Lesson, on_delete=models.CASCADE)
     completed_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:

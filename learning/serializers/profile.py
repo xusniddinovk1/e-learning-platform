@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from learning.models import TeacherProfile, StudentProfile
+from learning.models.profile import TeacherProfile, StudentProfile
 from django.contrib.auth import get_user_model
 
 User = get_user_model()
@@ -8,7 +8,8 @@ User = get_user_model()
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ['id', 'username']
+        fields = ['id', 'phone_number']
+        ref_name = 'CustomAppUser'
 
 
 class TeacherProfileSerializer(serializers.ModelSerializer):
