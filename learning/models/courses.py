@@ -1,11 +1,15 @@
 from django.db import models
+from .profile import StudentProfile
 from .profile import TeacherProfile
 
 
 class Course(models.Model):
     title = models.CharField(max_length=50, null=False, blank=False)
     description = models.TextField()
-    teacher = models.ForeignKey(TeacherProfile, on_delete=models.CASCADE, related_name='courses')
+    teacher = models.ForeignKey(TeacherProfile, on_delete=models.CASCADE, related_name='courses', blank=True)
+    students = models.ManyToManyField(StudentProfile, through='Enrollment', related_name='enrolled_courses',
+                                      blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.title

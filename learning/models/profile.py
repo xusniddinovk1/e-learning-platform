@@ -14,7 +14,6 @@ class TeacherProfile(models.Model):
 
 class StudentProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='student_profile')
-    enrolled_courses = models.ManyToManyField('Course', blank=True, related_name='enrolled_courses')
 
     def __str__(self):
         return f'Student: {self.user.username}'

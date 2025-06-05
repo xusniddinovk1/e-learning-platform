@@ -1,14 +1,27 @@
-from learning.models import TeacherProfile, StudentProfile
 from rest_framework import serializers
+from learning.models import TeacherProfile, StudentProfile
+from django.contrib.auth import get_user_model
+
+User = get_user_model()
 
 
-class TeacherProfileSerializers(serializers.ModelSerializer):
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ['id', 'username']
+
+
+class TeacherProfileSerializer(serializers.ModelSerializer):
+    user = UserSerializer(read_only=True)
+
     class Meta:
         model = TeacherProfile
-        fields = '__all__'
+        fields = ['id', 'user', 'bio']
 
 
 class StudentProfileSerializer(serializers.ModelSerializer):
+    user = UserSerializer(read_only=True)
+
     class Meta:
         model = StudentProfile
-        fields = '__all__'
+        fields = ['id', 'user']
